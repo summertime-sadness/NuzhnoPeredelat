@@ -1,0 +1,64 @@
+﻿<UserControl x:Class="PhotoStudio.Views.TimeTableView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PhotoStudio.Views"
+             mc:Ignorable="d" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:viewmodel ="clr-namespace:PhotoStudio.ViewModels"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.DataContext>
+        <viewmodel:TimeTableViewModel/>
+    </UserControl.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <StackPanel Orientation="Vertical">
+                <TextBlock FontFamily="Arial Black" Text="Выберите сотрудника: "/>
+                <ComboBox ItemsSource="{Binding Employees}" SelectedItem="{Binding SelectedEmployee, UpdateSourceTrigger=PropertyChanged}">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Name}"/>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate> 
+                </ComboBox>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1">
+            <ListView ItemsSource="{Binding Orders, UpdateSourceTrigger=PropertyChanged}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Expander MinWidth="800">
+                            <Expander.Header>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock FontSize="15" FontFamily="Arial Black" Text="Дата: "/>
+                                    <TextBlock FontSize="14" Text="{Binding DateToWork, StringFormat='dd MM yyyy'}"/>
+                                    <TextBlock FontSize="15" FontFamily="Arial Black" Text=" Время: "/>
+                                    <TextBlock FontSize="14" Text="{Binding TimeToWork, StringFormat='HH:mm'}"/>
+                                </StackPanel>
+                            </Expander.Header>
+                            <StackPanel>
+                                <TextBlock Text="Услуга: "/>
+                                <TextBlock Text="{Binding Service.Name}"/>
+                                <TextBlock Text="Заказчик: "/>
+                                <TextBlock Text="{Binding Client.Name}"/>
+                                <TextBlock Text="Локация: "/>
+                                <TextBlock Text="{Binding Location.Name}"/>
+                                <TextBlock Text="Время работы(мин): "/>
+                                <TextBlock Text="{Binding Service.TimeWork}"/>
+                                <TextBlock Text="Количество услуг: "/>
+                                <TextBlock Text="{Binding Count}"/>
+                                <TextBlock Text="Конечная цена: "/>
+                                <TextBlock Text="{Binding PriceEnd}"/>
+                            </StackPanel>
+                        </Expander>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </Grid>
+</UserControl>
