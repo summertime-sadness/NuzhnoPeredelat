@@ -15,10 +15,10 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
-            <DataGrid 
+            <DataGrid Background="Bisque"
                 ItemsSource="{Binding Employees}" 
                 SelectedItem="{Binding SelectedEmployee}" 
                 AutoGenerateColumns="False" 
@@ -36,7 +36,7 @@
             </DataGrid>
         </Grid>
         <materialDesign:DialogHost x:Name="AddEmployeeCard" Visibility="Hidden">
-            <materialDesign:Card Background="#19000000">
+            <materialDesign:Card Background="#85754e">
                 <materialDesign:Card Height="278" Width="250">
                     <StackPanel Orientation="Vertical">
                         <TextBlock FontFamily="Segoe UI Black" Text="Фамилия"/>
@@ -61,7 +61,7 @@
                         <DatePicker x:Name="Birthdaydate" DataContext="{Binding AddedEmployee}" SelectedDate="{Binding Birthday}"/>
                         <StackPanel Orientation="Horizontal" Cursor="Hand">
                             <Button Background="{x:Null}" Width="200" Foreground="#DD000000" Command="{Binding AddEmployee}" Click="Button_Click_2">Добавить</Button>
-                            <Button Width="50" Background="{x:Null}" Foreground="#FF5A4A76" Cursor="Hand" BorderBrush="#FF5A4A76" Click="Button_Click_1">
+                            <Button Width="50" Background="{x:Null}" Foreground="#85754e" Cursor="Hand" BorderBrush="#85754e" Click="Button_Click_1">
                                 <Grid Width="40" Height="40">
                                     <materialDesign:PackIcon Kind="Cancel" Height="20" Width="20"/>
                                 </Grid>
@@ -97,7 +97,7 @@
                         <DatePicker x:Name="BirthdaydateEdit" DataContext="{Binding SelectedEmployee}" SelectedDate="{Binding Birthday, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"/>
                         <StackPanel Orientation="Horizontal" Cursor="Hand">
                             <Button Background="{x:Null}" Width="200" Foreground="#DD000000" Command="{Binding EditEmployee}" Click="Button_Click_5">Save</Button>
-                            <Button Width="50" Background="{x:Null}" Foreground="#FF5A4A76" Cursor="Hand" BorderBrush="#FF5A4A76" Click="Button_Click_4">
+                            <Button Width="50" Background="{x:Null}" Foreground="#85754e" Cursor="Hand" BorderBrush="#85754e" Click="Button_Click_4">
                                 <Grid Width="40" Height="40">
                                     <materialDesign:PackIcon Kind="Cancel" Height="20" Width="20"/>
                                 </Grid>
@@ -107,10 +107,10 @@
                 </materialDesign:Card>
             </materialDesign:Card>
         </materialDesign:DialogHost>
-        <StackPanel Background="#FF5A4A76" Grid.Row="1" Orientation="Horizontal">
-            <Button Background="{x:Null}" BorderBrush="{x:Null}" Cursor="Hand" Click="Button_Click">Добавить</Button>
-            <Button Background="{x:Null}" BorderBrush="{x:Null}" Cursor="Hand" Click="Button_Click_3">Редактировать</Button>
-            <Button Background="{x:Null}" BorderBrush="{x:Null}" Cursor="Hand" Command="{Binding DeleteEmployee}">Удалить</Button>
+        <StackPanel Background="#85754e" Grid.Row="1" Orientation="Horizontal">
+            <Button Background="{x:Null}" Foreground="Black" BorderBrush="{x:Null}" Cursor="Hand" Click="Button_Click">Добавить</Button>
+            <Button Background="{x:Null}" Foreground="Black" BorderBrush="{x:Null}" Cursor="Hand" Click="Button_Click_3">Редактировать</Button>
+            <Button Background="{x:Null}" Foreground="Black" BorderBrush="{x:Null}" Cursor="Hand" Command="{Binding DeleteEmployee}">Удалить</Button>
         </StackPanel>
     </Grid>
 </UserControl>
