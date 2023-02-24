@@ -12,14 +12,15 @@
     <Window.DataContext>
         <viewmodel:MainViewModel x:Name="mainViewModel"/>
     </Window.DataContext>
-        <Grid Cursor="Hand">
+        <Grid Cursor="Hand" Background="Bisque">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="130"/>
             <ColumnDefinition Width="700*"/>
         </Grid.ColumnDefinitions>
-        <Grid Grid.Column="0" Background="#FF5A4A76">
+        <Grid Grid.Column="0" Background="#85754e">
             <StackPanel Orientation="Vertical">
                 <Button 
+                    
                     BorderBrush="{x:Null}" 
                     Background="{x:Null}" 
                     Foreground="#DDFFFFFF" 
@@ -27,7 +28,7 @@
                     Command="{Binding ChangeCurrentViewCommand, Mode=OneWay}">
                     <Grid>
                         <materialDesign:PackIcon 
-                            Kind="Calendar" 
+                            Kind="CalendarAdd" 
                             Height="66" 
                             Width="95" 
                             HorizontalAlignment="Center" 

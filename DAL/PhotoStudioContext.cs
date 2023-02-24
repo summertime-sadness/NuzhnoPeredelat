@@ -9,7 +9,7 @@ namespace PhotoStudio.Model
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source=LAPTOP-RV24FL91\SQLEXPRESS; Initial Catalog=photostudiodb; Integrated Security=True"); 
+            optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-1VTLFL9; Initial Catalog=PhotoStudioDB; Integrated Security=True"); 
         }
 
         public DbSet<Employee> Employees { get; set; }
